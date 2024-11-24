@@ -1,0 +1,66 @@
+---
+import Chip from "../components/chip.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content="Andrés Reverón Molina website" />
+    <meta name="author" content="Andrés Reverón Molina" />
+    <meta property="og:title" content="Andrés Reverón Molina" />
+    <meta property="og:image" content="favicon.svg" />
+    <meta
+      property="og:description"
+      content="Linktree of Andrés Reverón Molina"
+    />
+    <meta
+      property="twitter:description"
+      content="Linktree of Andrés Reverón Molina"
+    />
+    <meta property="twitter:title" content="Andrés Reverón Molina" />
+    <meta property="twitter:image" content="favicon.svg" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@systemallica" />
+    <title>Andrés Reverón Molina</title>
+    <style>
+      @font-face {
+        font-family: Geist;
+        src: url(/Geist.ttf);
+        font-display: swap;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-[#1e1e1e] flex justify-center items-center w-screen h-screen font-[Geist] text-white"
+  >
+    <main class="w-[80%] flex flex-col gap-8">
+      <h1 class="md:text-5xl text-4xl font-black text-center">
+        Andrés Reverón Molina
+      </h1>
+      <div class="flex justify-center gap-8">
+        <Chip
+          link="mailto:andres@reveronmolina.me"
+          icon="fa-regular fa-envelope"
+        />
+        <Chip
+          link="https://github.com/systemallica"
+          icon="fa-brands fa-github"
+        />
+        <Chip
+          link="https://bsky.app/profile/reveronmolina.me"
+          icon="fa-brands fa-bluesky"
+        />
+      </div>
+    </main>
+  </body>
+</html>
