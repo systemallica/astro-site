@@ -1,6 +1,40 @@
 ---
 import '../styles/global.css'
 import Chip from "../components/chip.astro";
+
+const siteUrl = Astro.site ?? new URL("https://andres.reveronmolina.me");
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl);
+const title = "Andrés Reverón Molina | Personal Website";
+const description =
+  "Personal site for Andrés Reverón Molina, with contact links, GitHub projects, and social profiles.";
+const imageUrl = new URL("/favicon.svg", siteUrl);
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": new URL("/#person", siteUrl).href,
+      name: "Andrés Reverón Molina",
+      url: canonicalUrl.href,
+      email: "mailto:andres@reveronmolina.me",
+      sameAs: [
+        "https://github.com/systemallica",
+        "https://bsky.app/profile/reveronmolina.me",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": new URL("/#website", siteUrl).href,
+      name: "Andrés Reverón Molina",
+      alternateName: "reveronmolina.me",
+      url: canonicalUrl.href,
+      publisher: {
+        "@id": new URL("/#person", siteUrl).href,
+      },
+    },
+  ],
+};
 ---
 
 <html lang="en">
@@ -16,23 +50,26 @@ import Chip from "../components/chip.astro";
       referrerpolicy="no-referrer"
     />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content="Andrés Reverón Molina website" />
+    <link rel="canonical" href={canonicalUrl.href} />
+    <meta name="description" content={description} />
     <meta name="author" content="Andrés Reverón Molina" />
-    <meta property="og:title" content="Andrés Reverón Molina" />
-    <meta property="og:image" content="favicon.svg" />
-    <meta
-      property="og:description"
-      content="Linktree of Andrés Reverón Molina"
-    />
-    <meta
-      property="twitter:description"
-      content="Linktree of Andrés Reverón Molina"
-    />
-    <meta property="twitter:title" content="Andrés Reverón Molina" />
-    <meta property="twitter:image" content="favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Andrés Reverón Molina" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content={canonicalUrl.href} />
+    <meta property="og:title" content={title} />
+    <meta property="og:image" content={imageUrl.href} />
+    <meta property="og:description" content={description} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:image" content={imageUrl.href} />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@systemallica" />
-    <title>Andrés Reverón Molina</title>
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify(structuredData)}
+    />
+    <title>{title}</title>
     <style>
       @font-face {
         font-family: Geist;
