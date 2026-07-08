@@ -1,5 +1,10 @@
 ---
 import '../styles/global.css'
+import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
+import {
+  faBluesky,
+  faGithub,
+} from "@fortawesome/free-brands-svg-icons";
 import Chip from "../components/chip.astro";
 
 const siteUrl = Astro.site ?? new URL("https://andres.reveronmolina.me");
@@ -42,13 +47,6 @@ const structuredData = {
     <meta charset="utf-8" />
     <link rel="icon" type="image/x-icon" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
-      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
     <meta name="generator" content={Astro.generator} />
     <link rel="canonical" href={canonicalUrl.href} />
     <meta name="description" content={description} />
@@ -88,15 +86,18 @@ const structuredData = {
       <div class="flex justify-center gap-8">
         <Chip
           link="mailto:andres@reveronmolina.me"
-          icon="fa-regular fa-envelope"
+          icon={faEnvelope}
+          label="Email Andrés"
         />
         <Chip
           link="https://github.com/systemallica"
-          icon="fa-brands fa-github"
+          icon={faGithub}
+          label="Andrés on GitHub"
         />
         <Chip
           link="https://bsky.app/profile/reveronmolina.me"
-          icon="fa-brands fa-bluesky"
+          icon={faBluesky}
+          label="Andrés on Bluesky"
         />
       </div>
     </main>
