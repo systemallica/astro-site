@@ -1,11 +1,21 @@
 ---
+import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import Icon from "./icon.astro";
+
 interface Props {
   link: string;
-  icon: string;
+  icon: IconDefinition;
+  label: string;
 }
-const { link, icon } = Astro.props;
+const { link, icon, label } = Astro.props;
 ---
 
-<a class="text-3xl" aria-label="link" target="_blank" href={link}>
-  <i class={icon}></i>
+<a
+  class="text-3xl"
+  aria-label={label}
+  target="_blank"
+  rel="noreferrer"
+  href={link}
+>
+  <Icon icon={icon} />
 </a>
