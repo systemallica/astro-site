@@ -16,7 +16,7 @@
     "astro": "^7.1.6",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "tailwindcss": "^4.3.3",
-    "typescript": "^7.0.2"
+    "typescript": "^6.0.2"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.3.1",
