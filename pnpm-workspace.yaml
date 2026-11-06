@@ -3,3 +3,10 @@ allowBuilds:
   sharp: true
 
 minimumReleaseAge: 0
+
+overrides:
+  "@emnapi/runtime": "^1.11.3"
+
+publicHoistPattern:
+  - cookie
+  - zod
